@@ -202,7 +202,7 @@ bar {
 }
 
 
-exec_always feh --bg-fill /home/feeloo/Downloads/wp2618255-blackarch-wallpaper.png
+exec_always feh --bg-fill /home/$USER/Downloads/wp2618255-blackarch-wallpaper.png
 bindsym $mod+x exec /home/$USER/.config/scripts/lock
 for_window [class="firefox"] move to workspace $ws2
 for_window [class="terminator"] move to workspace $ws1
