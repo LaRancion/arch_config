@@ -53,6 +53,8 @@ mod+shift+r refresh i3 conf
 mod+r drag applications around to resize
 mod+shift+e logout
 mod+shift+q kill window
+mod+d open search bar
+
 
 **other
 
