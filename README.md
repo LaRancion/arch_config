@@ -18,7 +18,7 @@ xrandr --output DP-1 --auto --left-of HDMI-2
 
 # shortcuts
 
-###apps
+### apps
 
 mod+b => firefox
 
@@ -59,7 +59,7 @@ mod+Shift+Right move right
 
 
 
-###system
+### system
 
 mod+x lock screen
 
@@ -74,7 +74,7 @@ mod+shift+q kill window
 mod+d open search bar
 
 
-###other
+### other
 
 mod+shif+g app gaps
 
