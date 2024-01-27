@@ -117,8 +117,8 @@ bindsym $mod+a focus parent
 set $ws1 "1: Terminal"
 set $ws2 "2: Firefox"
 set $ws3 "3: VM"
-set $ws4 "4"
-set $ws5 "5"
+set $ws4 "4: Obsidian"
+set $ws5 "5: Discord"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
@@ -190,6 +190,7 @@ bar {
 	font pango: Droid Sans Mono 11
 	i3bar_command i3bar --transparency
 	tray_output none
+	position top
 	colors {
                 background $bar-color
                 separator #191919
@@ -202,11 +203,13 @@ bar {
 }
 
 
-exec_always feh --bg-fill /home/$USER/Downloads/wp2618255-blackarch-wallpaper.png
+exec_always feh --bg-fill /home/feeloo/Downloads/wp2618255-blackarch-wallpaper.png
 bindsym $mod+x exec /home/$USER/.config/scripts/lock
 for_window [class="firefox"] move to workspace $ws2
-for_window [class="terminator"] move to workspace $ws1
-for_window [class="Virtualbox Manager"] move to workspace $ws3
+for_window [class="Terminator"] move to workspace $ws1
+for_window [class="VirtualBox Manager"] move to workspace $ws3
+for_window [class="obsidian"] move to workspace $ws4
+for_window [class="discord"] move to workspace $ws5
 
 exec_always picom -f
 
@@ -364,4 +367,6 @@ set $focused-ws #523d6480
 set $bar-color  #523d640D
 
 bindsym $mod+b exec firefox
+bindsym $mod+shift+o exec obsidian
+bindsym $mod+shift+d exec discord
 
