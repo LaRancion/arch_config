@@ -359,7 +359,6 @@ mode "$mode_gaps_left" {
 bindsym $mod+p move workspace to output HDMI-2
 bindsym $mod+o move workspace to output DP-1
 bindsym $mod+g move workspace to output eDP-1
-exec_always setxkbmap it
 
 set $bgcolor    #523d6499
 set $in-bgcolor #3636364D
@@ -369,4 +368,4 @@ set $bar-color  #523d640D
 bindsym $mod+b exec firefox
 bindsym $mod+shift+o exec obsidian
 bindsym $mod+shift+d exec discord
-
+bindsym $mod+shift+f exec flameshot gui

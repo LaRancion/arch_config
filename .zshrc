@@ -88,6 +88,8 @@ fi
 IP1=$(ip -4 addr | grep -v 127.0.0.1 | grep -v secondary | grep enp0s31f6 | grep -Po "inet \K[\d.]+") # Get normal interface, may need to be changed
 IP2=$(ip -4 addr | grep -v 127.0.0.1 | grep -v secondary | grep tun0 | grep -Po "inet \K[\d.]+") # Get VPN IP if connected
 IP3=$(ip -4 addr | grep -v 127.0.0.1 | grep -v secondary | grep wlp4s0 | grep -Po "inet \K[\d.]+") # Get Wireless IP if connected
+IP4=$(ip -4 addr | grep -v 127.0.0.1 | grep -v secondary | grep enp62s0u1u1u1 | grep -Po "inet \K[\d.]+")
+
 
 # Create prompts based on which interfaces are found
 if [ $IP1 ]; then
@@ -108,14 +110,20 @@ else
     WIFI=""
 fi
 
+if [ $IP4 ]; then 
+    LOCAL1="%F{white}─🮤 %F{cyan}$IP4%F{white}🮥"
+else
+    LOCAL1=""
+fi
 
+    
 DIR=$'%B%F{yellow}%(6~.%-1~/…/%4~.%5~)%b%F{white}'
 NAME=$'%F{white} %F{green}feeloo'
 
 if [ "$color_prompt" = yes ]; then
 
 	# Assemble the prompt in pieces for readability
-	LINE1=$'%F{white}┌──🮤'$NAME'%F{white}🮥'$LOCAL$VPN$WIFI
+	LINE1=$'%F{white}┌──🮤'$NAME'%F{white}🮥'$LOCAL1$LOCAL$VPN$WIFI
 	LINE2=$'\n├──🮤%B%F{white}%b  '$DIR'🮥'
 	LINE3=$'\n└─%F{white}  '
 
