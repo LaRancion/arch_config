@@ -78,4 +78,10 @@ mod+d open search bar
 
 mod+shif+g app gaps
 
+### x discord
+
+~/.config/discord/settings.json
+
+"SKIP_HOST_UPDATE": true
+
 
