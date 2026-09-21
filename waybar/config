@@ -5,7 +5,10 @@
     "spacing": 0,
 
     "modules-left": [
-        "sway/workspaces"
+        "sway/workspaces",
+	"bluetooth",
+	"custom/vpn",
+	"custom/vms"
     ],
 
     "modules-center": [
@@ -19,9 +22,9 @@
         "sway/language",
         "battery",
         "network",
-        "custom/vpn",
-        "custom/vms",
-        "custom/power-profile"
+        "custom/power-profile",
+	"pulseaudio",
+	"backlight"    
     ],
 
     "sway/workspaces": {
@@ -33,6 +36,58 @@
             "focused": "",
             "urgent": ""
         }
+    },
+
+    "backlight": {
+    	"device": "intel_backlight",
+    	"format": "󰃠 {percent}%",
+    	"format-icons": [
+        	"󰃞",
+        	"󰃟",
+        	"󰃠"
+    	],
+    	"scroll-step": 5,
+    	"on-scroll-up": "brightnessctl set 5%+",
+    	"on-scroll-down": "brightnessctl set 5%-",
+    	"tooltip-format": "Brightness: {percent}%"
+    },
+
+    "bluetooth": {
+        "format": " {status}",
+        "format-connected": " {device_alias}",
+        "format-connected-battery": " {device_alias} {device_battery_percentage}%",
+
+        "format-disabled": " off",
+        "format-off": " off",
+
+        "tooltip-format": "{status}",
+        "tooltip-format-connected": "Connected to {device_alias}",
+        "tooltip-format-connected-battery": "Connected to {device_alias}\nBattery: {device_battery_percentage}%",
+
+        "on-click": "blueman-manager"
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "󰖁",
+        "format-source": " {volume}%",
+        "format-source-muted": "",
+
+        "format-icons": {
+            "default": [
+                "󰕿",
+                "󰖀",
+                "󰕾"
+            ],
+            "headphone": "󰋋",
+            "headset": "󰋎"
+        },
+
+        "scroll-step": 5,
+
+        "on-click": "pavucontrol",
+        "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "on-click-middle": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
     },
 
     "clock": {
