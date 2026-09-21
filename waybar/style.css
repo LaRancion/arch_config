@@ -1,0 +1,174 @@
+* {
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+window#waybar {
+    background: rgba(15, 17, 21, 0.96);
+    color: #cdd6f4;
+}
+
+/* ─────────────────────────────────────────────
+   WORKSPACES
+   ───────────────────────────────────────────── */
+
+#workspaces {
+    margin-left: 8px;
+}
+
+#workspaces button {
+    padding: 0 8px;
+    margin: 4px 2px;
+
+    color: #6c7086;
+    background: transparent;
+
+    border-radius: 7px;
+}
+
+#workspaces button.focused {
+    color: #1e1e2e;
+    background: #89b4fa;
+}
+
+#workspaces button:hover {
+    color: #cdd6f4;
+    background: #313244;
+}
+
+#workspaces button.urgent {
+    color: #1e1e2e;
+    background: #f38ba8;
+}
+
+/* ─────────────────────────────────────────────
+   CENTER CLOCK
+   ───────────────────────────────────────────── */
+
+#clock {
+    padding: 0 18px;
+
+    color: #cdd6f4;
+    background: #181825;
+
+    border-radius: 8px;
+}
+
+/* ─────────────────────────────────────────────
+   RIGHT SIDE MODULES
+   ───────────────────────────────────────────── */
+
+#cpu,
+#memory,
+#temperature,
+#language,
+#battery,
+#network,
+#custom-vpn,
+#custom-vms,
+#custom-power-profile {
+    padding: 0 9px;
+    margin: 4px 1px;
+
+    background: #181825;
+    color: #bac2de;
+
+    border-radius: 7px;
+}
+
+/* Individual colors */
+
+#cpu {
+    color: #89b4fa;
+}
+
+#memory {
+    color: #cba6f7;
+}
+
+#temperature {
+    color: #f9e2af;
+}
+
+#language {
+    color: #94e2d5;
+}
+
+#battery {
+    color: #a6e3a1;
+}
+
+#network {
+    color: #89dceb;
+}
+
+/* ─────────────────────────────────────────────
+   VPN
+   ───────────────────────────────────────────── */
+
+#custom-vpn {
+    color: #6c7086;
+}
+
+#custom-vpn.connected {
+    color: #a6e3a1;
+}
+
+#custom-vpn.disconnected {
+    color: #6c7086;
+}
+
+/* ─────────────────────────────────────────────
+   VIRTUAL MACHINES
+   ───────────────────────────────────────────── */
+
+#custom-vms {
+    color: #6c7086;
+}
+
+#custom-vms.running {
+    color: #cba6f7;
+}
+
+/* ─────────────────────────────────────────────
+   POWER PROFILE
+   ───────────────────────────────────────────── */
+
+#custom-power-profile {
+    color: #f9e2af;
+}
+
+#custom-power-profile.performance {
+    color: #f38ba8;
+}
+
+#custom-power-profile.balanced {
+    color: #89b4fa;
+}
+
+#custom-power-profile.power-saver {
+    color: #a6e3a1;
+}
+
+/* ─────────────────────────────────────────────
+   WARNINGS
+   ───────────────────────────────────────────── */
+
+#temperature.critical {
+    color: #f38ba8;
+    background: #3b1d2a;
+}
+
+#battery.warning {
+    color: #f9e2af;
+}
+
+#battery.critical {
+    color: #f38ba8;
+    background: #3b1d2a;
+}

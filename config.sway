@@ -1,0 +1,343 @@
+#============================================================
+#Sway configuration - Fedora
+#============================================================
+#Variables
+
+set $mod Mod4
+set $term kitty
+set $menu rofi -show drun
+
+# Vim-style movement
+
+set $left h
+set $down j
+set $up k
+set $right l
+
+#============================================================
+#Environment
+#============================================================
+#Wayland / desktop environment hints
+
+exec_always dbus-update-activation-environment --systemd
+exec /usr/libexec/lxqt-policykit-agent
+
+#WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+
+#============================================================
+#Startup applications
+#============================================================
+#Waybar
+
+exec_always waybar
+
+#NetworkManager tray
+
+exec nm-applet --indicator
+
+#Clipboard manager
+
+exec wl-paste --type text --watch clipman store
+exec wl-paste --type image --watch clipman store
+
+#============================================================
+#Appearance
+#============================================================
+#Wallpaper
+#Replace this with your own wallpaper:
+output * bg ~/Pictures/a_road_with_trees_and_a_mountain_in_the_background.png fill
+#Fedora/Sway fallback:
+
+#output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+
+#Gaps
+
+gaps inner 8
+gaps outer 4
+
+smart_gaps on
+
+default_border pixel 2
+default_floating_border pixel 2
+
+hide_edge_borders smart
+
+#Colors
+#border background text indicator child_border
+
+client.focused #89b4fa #89b4fa #11111b #89b4fa #89b4fa
+client.unfocused #313244 #181825 #a6adc8 #313244 #313244
+client.focused_inactive #45475a #181825 #a6adc8 #45475a #45475a
+client.urgent #f38ba8 #f38ba8 #11111b #f38ba8 #f38ba8
+client.placeholder #313244 #181825 #a6adc8 #313244 #313244
+
+#============================================================
+#Font
+#============================================================
+
+font pango:JetBrains Mono 10
+
+#============================================================
+#Input
+#============================================================
+#Enable tap-to-click and natural scrolling for touchpads.
+
+input type:touchpad {
+tap enabled
+natural_scroll enabled
+dwt enabled
+}
+
+#Uncomment if you want a European keyboard layout.
+#input type:keyboard {
+#xkb_layout it
+#}
+#============================================================
+#Mouse
+#============================================================
+#Disable focus changing when the mouse moves between windows.
+
+focus_follows_mouse yes
+
+#============================================================
+#Floating windows
+#============================================================
+
+floating_modifier $mod normal
+
+#============================================================
+#Terminal
+#============================================================
+
+bindsym $mod+Return exec $term
+
+#============================================================
+#Application launcher
+#============================================================
+
+bindsym $mod+d exec $menu
+
+#============================================================
+#Window management
+#============================================================
+#Close window
+
+bindsym $mod+Shift+q kill
+
+#Reload configuration
+
+bindsym $mod+Shift+c reload
+
+#Restart Sway
+
+bindsym $mod+Shift+r restart
+
+#Exit Sway
+
+bindsym $mod+Shift+e exec swaynag \
+-t warning \
+-m 'Exit Sway?' \
+-B 'Yes, exit' 'swaymsg exit'
+
+#============================================================
+#Focus movement - Vim style
+#============================================================
+
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+
+#Arrow-key alternatives
+
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+#============================================================
+#Move windows
+#============================================================
+
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+#============================================================
+#Split layout
+#============================================================
+
+bindsym $mod+b splith
+bindsym $mod+v splitv
+
+#Toggle fullscreen
+
+bindsym $mod+f fullscreen toggle
+
+#Toggle floating
+
+bindsym $mod+Shift+space floating toggle
+
+#Focus mode
+
+bindsym $mod+space focus mode_toggle
+
+#Toggle layout
+
+bindsym $mod+e layout toggle split
+
+#============================================================
+#Resize mode
+#============================================================
+
+mode "resize" {
+bindsym $left resize shrink width 10 px
+bindsym $down resize grow height 10 px
+bindsym $up resize shrink height 10 px
+bindsym $right resize grow width 10 px
+
+bindsym Left resize shrink width 10 px
+bindsym Down resize grow height 10 px
+bindsym Up resize shrink height 10 px
+bindsym Right resize grow width 10 px
+
+bindsym Return mode "default"
+bindsym Escape mode "default"
+bindsym $mod+r mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+#============================================================
+#Workspaces
+#============================================================
+
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+#Switch workspaces
+
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+
+#Move focused container to workspace
+
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+
+#============================================================
+#Scratchpad
+#============================================================
+
+bindsym $mod+minus scratchpad show
+bindsym $mod+Shift+minus move scratchpad
+
+#============================================================
+#Screenshots
+#============================================================
+#Full screen
+
+bindsym Print exec grim ~/Pictures/screenshot-$(date +%Y%m%d-%H%M%S).png
+
+#Select region
+
+bindsym Shift+Print exec grim -g "$(slurp)" ~/Pictures/screenshot-$(date +%Y%m%d-%H%M%S).png
+
+#Select region and copy to clipboard
+
+bindsym $mod+Print exec grim -g "$(slurp)" - | wl-copy
+
+#============================================================
+#Volume
+#============================================================
+
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+#============================================================
+#Media
+#============================================================
+
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+#============================================================
+#Brightness
+#============================================================
+
+bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+
+#============================================================
+#Lock screen
+#============================================================
+
+bindsym $mod+p exec swaylock --config ~/.config/swaylock/config
+
+#============================================================
+#Idle management
+#============================================================
+
+exec swayidle -w \
+    timeout 300 'swaylock --config ~/.config/swaylock/config' \
+    timeout 600 'swaymsg "output * power off"' \
+    resume 'swaymsg "output * power on"' \
+    before-sleep 'swaylock --config ~/.config/swaylock/config'
+
+#============================================================
+#Window rules
+#============================================================
+#Pavucontrol
+
+for_window [app_id="pavucontrol"] floating enable
+
+#NetworkManager connection editor
+
+for_window [app_id="nm-connection-editor"] floating enable
+
+#============================================================
+#Miscellaneous
+#============================================================
+#Mouse + modifier moves floating windows
+
+floating_modifier $mod normal
+
+#Set default workspace layout
+
+workspace_layout default
+
+#Include Fedora/system configuration snippets if present
+
+include /etc/sway/config.d/*

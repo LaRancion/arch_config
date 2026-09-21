@@ -1,0 +1,124 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 34,
+    "spacing": 0,
+
+    "modules-left": [
+        "sway/workspaces"
+    ],
+
+    "modules-center": [
+        "clock"
+    ],
+
+    "modules-right": [
+        "cpu",
+        "memory",
+        "temperature",
+        "sway/language",
+        "battery",
+        "network",
+        "custom/vpn",
+        "custom/vms",
+        "custom/power-profile"
+    ],
+
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": false,
+        "format": "{icon}",
+        "format-icons": {
+            "default": "",
+            "focused": "",
+            "urgent": ""
+        }
+    },
+
+    "clock": {
+        "format": "{:%a %d %b  •  %H:%M}",
+        "tooltip-format": "<big>{:%A, %d %B %Y}</big>\n<tt>{calendar}</tt>",
+        "interval": 1
+    },
+
+    "cpu": {
+        "format": " {usage}%",
+        "tooltip": true,
+        "interval": 2
+    },
+
+    "memory": {
+        "format": " {percentage}%",
+        "tooltip-format": "RAM: {used:0.1f} GiB / {total:0.1f} GiB",
+        "interval": 2
+    },
+
+    "temperature": {
+        "format": " {temperatureC}°C",
+        "format-critical": " {temperatureC}°C",
+        "critical-threshold": 85,
+        "interval": 2,
+        "tooltip": true
+    },
+
+    "sway/language": {
+        "format": " {short}",
+        "tooltip-format": "Keyboard: {long}",
+        "on-click": "swaymsg input type:keyboard xkb_switch_layout next"
+    },
+
+    "battery": {
+        "format": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-alt": "{time} {icon}",
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "tooltip-format": "{capacity}% • {time}",
+        "interval": 30
+    },
+
+    "network": {
+        "format-wifi": " {ipaddr}",
+        "format-ethernet": "󰈀 {ipaddr}",
+        "format-disconnected": "󰤮 offline",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%)\n{ipaddr}",
+        "tooltip-format-ethernet": "{ifname}\n{ipaddr}",
+        "tooltip-format-disconnected": "Network disconnected",
+        "interval": 5
+    },
+
+    "custom/vpn": {
+        "exec": "~/.config/waybar/scripts/vpn-status.sh",
+        "return-type": "json",
+        "interval": 5,
+        "format": "{}",
+        "tooltip": true
+    },
+
+    "custom/vms": {
+        "exec": "~/.config/waybar/scripts/vm-status.sh",
+        "return-type": "json",
+        "interval": 5,
+        "format": "{}",
+        "tooltip": true
+    },
+
+    "custom/power-profile": {
+        "exec": "~/.config/waybar/scripts/power-profile.sh",
+        "return-type": "json",
+        "interval": 5,
+        "format": "{}",
+        "on-click": "~/.config/waybar/scripts/power-profile.sh toggle",
+        "tooltip": true
+    }
+}

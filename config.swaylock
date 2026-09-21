@@ -1,0 +1,54 @@
+image=/home/user/Pictures/a_black_background_with_white_text.jpg
+
+
+indicator-x=960
+indicator-y=900
+
+indicator-radius=125
+indicator-thickness=5
+
+color=000000
+
+ring-color=9b8bbd
+text-color=8f91a8
+line-color=242433
+separator-color=181825
+
+
+# Catppuccin Mocha
+inside-color=1e1e2e
+inside-clear-color=181926
+inside-caps-lock-color=f38ba8
+inside-ver-color=a6e3a1
+inside-wrong-color=f38ba8
+
+# Ring
+#ring-color=cba6f7
+ring-clear-color=94e2d5
+ring-caps-lock-color=f38ba8
+ring-ver-color=a6e3a1
+ring-wrong-color=f38ba8
+
+# Indicator
+#indicator-radius=100
+#indicator-thickness=7
+
+# Soft text
+#text-color=a6adc8
+text-clear-color=94b8b5
+text-ver-color=9ec7a5
+text-wrong-color=c58b91
+
+# Very subtle line
+#line-color=313244
+separator-color=181825
+
+
+show-failed-attempts
+ignore-empty-password
+
+
+font=JetBrains Mono
+font-size=22
+
+
